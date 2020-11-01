@@ -1,0 +1,173 @@
+.open-menu {
+	display: none;
+	position: relative;
+	height: 100%;
+	width: 30px;
+	&:hover,
+	&:focus {
+		span,
+		span:before,
+		span:after {
+			background: $accent;
+		}
+	}
+	
+	span,
+	span:before,
+	span:after {
+		position: absolute;
+		height: 2px;
+		width: 26px;
+		left: calc(50% - 13px);
+		top: calc(50% - 1px);
+		background: #fff;
+		transition: .3s;
+	}
+	span {
+		&:before,
+		&:after {
+			content: '';
+			display: block;
+		}
+		&:before {
+			top: calc(50% - 9px);
+		}
+		&:after {
+			top: calc(50% + 7px);
+		}
+	}
+	@include breakpoint(lg) {
+		display: block;
+	}
+}
+.mobile-nav {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 101;
+	width: 100%;
+	max-width: 400px;
+	height: 100vh;
+	flex-direction: column;
+	background: #fff;
+	transition: 0.5s;
+	transform: translateX(-100%);
+	overflow-y: auto;
+	display: none;
+	&.visible {
+		display: flex;
+	}
+	&.open {
+		transform: translateX(0%);
+	}
+
+	&__header {
+		background: $gray;
+		display: flex;
+		padding: 15px;
+		color: #fff;
+		font-size: 18px;
+		height: 50px;
+		span {
+			margin-right: auto;
+		}
+	}
+	&__close {
+		svg {
+			height: 18px;
+			width: 18px;
+			fill: #fff;
+			transition: .3s;
+		}
+		&:hover {
+			svg {
+				fill: $accent;
+			}
+		}
+	}
+	&__list {
+		padding: 15px;
+	}
+	&__item {
+		font-size: 18px;
+		margin-bottom: 15px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	&__link {
+		&.active {
+			color: $accent;
+		}
+	}
+	&__footer {
+		height: 100%;
+		padding: 20px 15px;
+		background: $gray;
+		h6 {
+			color: #fff;
+			position: relative;
+			font-size: 18px;
+			font-weight: normal;
+			&:after {
+				content: '';
+				display: block;
+                background: $accent;
+                width: 50px;
+                height: 3px;
+                margin-top: 10px;
+                margin-right: auto;
+			}
+		}
+	}
+	&__list-info {
+		margin: 10px
+	}
+	&__list-item {
+		margin: 15px 0;
+		display: flex;
+		svg {
+			fill: $accent;
+			height: 35px;
+			width: 35px;
+		}
+		&:last-child {
+			.mobile-nav__list-text {
+				margin-left: 32px;
+			}
+		}
+		
+	}
+	&__list-text,
+	&__list-link {
+		color: #fff;
+		margin-left: 20px;
+		font-size: 15px;
+		align-self: center;
+	}
+}
+.main-nav {
+	@include breakpoint(lg) {
+		display: none;
+	}
+	&__list {
+		display: flex;
+		flex-direction: row;
+	}
+	&__link {
+		color: #fff;
+		font-size: 14px;
+		padding: 0 1rem;
+		text-transform: uppercase;
+		display: flex;
+		height: 56px;
+		align-items: center;
+		background: trasnparent;
+		&.active,
+		&:hover {
+			background: $accent;
+			color: #fff;
+		}
+	}
+}
+

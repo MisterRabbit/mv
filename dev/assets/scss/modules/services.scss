@@ -1,0 +1,113 @@
+.services {
+	h5 {
+		font-size: 20px;
+		line-height: 22px;
+		font-weight: normal;
+		padding-top: 15px;
+		border-top: 1px solid #e0e0e0;
+		outline: none;
+		position: relative;
+		&:first-child {
+			border-top: none;
+		}
+		&:after {
+			content: '';
+			display: block;
+			height: 2px;
+			width: 50px;
+			background: $accent;
+			margin: 15px auto 15px 0;
+			transition: .3s;
+		}
+		@include breakpoint(lg) {
+			padding-bottom: 15px;
+			&:before {
+				content: '';
+				position: absolute;
+				border: solid #b5b5b5;
+				border-width: 0 2px 2px 0;
+				height: 20px;
+				width: 20px;
+				right: 15px;
+				transform: rotate(45deg);
+				transition: .3s;
+				top: 10px;
+			}
+			&:after {
+				opacity: 0;
+				margin: 0px auto 0px 0;
+			}
+			&.active {
+				padding-bottom: 0px;
+				&:before {
+					transform: rotate(-135deg);
+					top: 24px;
+				}
+				&:after {
+					opacity: 1;
+					margin: 15px auto 15px 0;
+				}
+			}
+		}
+		@include breakpoint(350px) {
+			font-size: 18px;
+		}
+	}
+	ul {
+		padding-bottom: 15px;
+		column-count: 2;
+		@include breakpoint(600px) {
+			column-count: 1;
+		}
+	}
+	li {
+	}
+	a {
+		color: $gray;
+		font-size: 16px;
+		line-height: 27px;
+		position: relative;
+		padding-left: 14px;
+		&:hover {
+			color: $accent;
+			margin-left: 7px;
+		}
+		&:before {
+			content: "›";
+			position: absolute;
+			left: 0;
+			top: 0;
+			line-height: 16px;
+		}
+	}
+	&-nav {
+		position: sticky;
+		top: 70px;
+		@include breakpoint(lg) {
+			display: none;
+		}
+		&__list {
+			padding-left: 15px;
+			border-left: 1px solid #e0e0e0;
+		}
+		&__link {
+			line-height: 27px;
+			position: relative;
+			padding-left: 15px;
+			display: block;
+			border-left: 3px solid transparent;
+			&:focus {
+				border-left: 3px solid transparent;
+				padding-left: 15px;
+				color: $text;
+			}
+			&:hover,
+			&.active,
+			&.active:focus  {
+				border-left: 3px solid $accent;
+				padding-left: 22px;
+				color: $accent;
+			}
+		}
+	}
+}

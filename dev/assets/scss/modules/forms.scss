@@ -1,0 +1,303 @@
+.form {
+	position: relative;
+    &__item {
+        margin-bottom: 20px;
+		position: relative;
+		& > svg {
+            height: 23px;
+            width: 23px;
+            fill: #dddddd;
+            transition: .3s;
+            margin-left: 15px;
+            &:hover {
+                fill: $text;
+            }
+        }
+    }
+    &__label {
+        font-weight: bold;
+        line-height: 32px;
+		display: inline-flex;
+		align-items: center;
+		@include breakpoint(xxs) {
+			// line-height: 25px;
+			font-size: 15px;
+		}
+    }
+    &__req {
+        position: relative;
+        &:after {
+            content: "*";
+            position: absolute;
+            color: $accent;
+            right: -7px;
+            top: 0;
+        }
+	}
+	&__symbols-counter {
+		position: absolute;
+		right: 0;
+		top: 8px;
+		color: #bbb;
+		span.warning {
+			color: $accent;
+		}
+	}
+    &__control {
+        display: block;
+        // min-height: 46px;
+        width: 100%;
+        padding: 12px 20px;
+        border: 1px solid #dddddd;
+        background-color: #fff;
+        line-height: 20px;
+        transition: .3s;
+        &:focus {
+            border: 1px solid $text;
+        }
+        &::placeholder {
+            color: #868e96;
+        }
+        &.has-error {
+            border: 1px solid $accent;
+            animation: swing 1s ease;
+            animation-iteration-count: 1;
+		}
+	}
+	&__dropzone {
+		outline: 2px dashed #ddd;
+		outline-offset: -2px;
+		min-height: 320px;
+		transition: .3s;
+		background: transparent;
+		position: relative;
+		@include breakpoint(md) {
+			min-height: 205px;
+		}
+		&:hover,
+		&.focused {
+			.form__choosefile {
+				svg {
+					padding: 15px;
+					@include breakpoint(md) {
+						padding: 10px;
+					}
+				}
+			}
+		}
+		&.focused {
+			outline: 2px dashed $text;
+		}
+		&:hover {
+			.form__choosefile {
+				p {
+					color: $accent;
+				}
+			}
+		}
+		&.dragover {
+			background-color: #d4ffcf;
+			outline: 2px dashed $text;
+			outline-offset: -10px;
+		}
+	}
+	&__choosefile {
+		text-align: center;
+		padding-top: 70px;
+		@include breakpoint(md) {
+			padding-top: 30px;
+		}
+		svg {
+			height: 100px;
+			width: 100px;
+			fill: #fff;
+			background-color: $gray;
+			border-radius: 50%;
+			padding: 20px;
+			margin-bottom: 10px;
+			transition: .3s;
+			@include breakpoint(md) {
+				height: 70px;
+				width: 70px;
+				padding: 15px;
+			}
+		}
+		p {
+			font-weight: bold;
+			line-height: 20px;
+			transition: .3s;
+		}
+		span {
+			border-bottom: 2px dotted;
+		}
+	}
+	&__file {
+		position: absolute;
+		opacity: 0;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		cursor: pointer;
+	}
+	&__uploadresult {
+		text-align: center;
+		padding: 10px;
+		max-width: 300px;
+		margin: 0 auto;
+		@include breakpoint(md) {
+			padding: 5px;
+		}
+		&.success {
+			color: #7dc44f;
+		}
+		&.error {
+			color: $accent;
+			animation: swing 1s ease;
+            animation-iteration-count: 1;
+		}
+	}
+	&__filelabel {
+		text-align: center;
+		max-width: 300px;
+		padding: 0 10px;
+		margin: 0 auto;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	&__removefile {
+		position: absolute;
+		top: 5px;
+		right: 0;
+		display: none;
+		align-items: center;
+		&:hover {
+			color: $accent;
+			svg {
+				fill: $accent;
+			}
+		}
+		svg {
+			height: 20px;
+			width: 20px;
+			margin-left: 5px;
+			fill: $text;
+			transition: .3s;
+		}
+		&.show {
+			display: flex;
+		}
+	}
+    &__checkbox {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        &:checked + label {
+            // &:before {
+            //     border: 1px solid $text;
+            // }
+            &:after {
+                // display: block;
+                opacity: 1;
+                transform: rotate(-45deg);
+            }
+        }
+        &:focus + label {
+            &:before {
+                border: 1px solid $text;
+            }
+        }
+    }
+    &__checkbox-label {
+        margin-left: 30px;
+        display: block;
+		line-height: 20px;
+		@include breakpoint(xxs) {
+			line-height: 17px;
+			font-size: 14px;
+		}
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            cursor: pointer;
+            transition: .3s;
+            display: block;
+        }
+        &:before {
+            height: 22px;
+            width: 22px;
+            border: 1px solid #dddddd;
+            left: 0;
+            top: 2px;
+        }
+        &:after {
+            left: 5px;
+            top: 6px;
+            // display: none;
+            height: 8px;
+            width: 13px;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+            transform: rotate(0deg);
+            opacity: 0;
+        }
+        a {
+            text-decoration: underline;
+            text-decoration-color: #7d7d7d;
+            &:hover {
+                text-decoration-color: $accent;
+            }
+        }
+    }
+    &__error-notify {
+        position: absolute;
+        font-size: 13px;
+        line-height: 15px;
+        color: $accent;
+        bottom: -16px;
+		left: 0;
+		@include breakpoint(xxs) {
+			font-size: 12px;
+		}
+    }
+    &__submit {
+		padding-top: 15px;
+		position: relative;
+		&-error {
+			position: absolute;
+			color: $accent;
+			top: 0;
+			right: 0;
+			font-size: 12px;
+			animation: swing 1s ease;
+            animation-iteration-count: 1;
+		}
+    }
+    &__btn-submit {
+        background: $gray;
+        color: #fff;
+        font-size: 18px;
+        padding: 14px 25px;
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+		opacity: 1;
+        &:hover {
+            background: $accent;
+        }
+        svg {
+            height: 16px;
+            width: 16px;
+            fill: #fff;
+            margin-right: 7px;
+        }
+        &:disabled {
+            opacity: 0.5;
+            &:hover {
+                background: $gray;
+            }
+        }
+    }
+}

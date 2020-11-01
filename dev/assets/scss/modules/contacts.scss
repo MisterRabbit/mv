@@ -1,0 +1,125 @@
+.contacts-info {
+	padding: 30px 0 0px;
+	@include breakpoint(700px) {
+		padding: 0;
+	}
+	&__col {
+		flex: 0 1 33.333333%;
+		max-width: 33.333333%;
+		text-align: center;
+		font-size: 18px;
+		line-height: 24px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		margin-bottom: 30px;
+		@include breakpoint(lg) {
+			font-size: 17px;
+		}
+		@include breakpoint(800px) {
+			font-size: 16px;
+		}
+		@include breakpoint(700px) {
+			flex: 0 1 50%;
+			max-width: 50%;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			margin-bottom: 10px;
+			&:last-child {
+				flex: 0 1 100%;
+				max-width: 100%;
+			}
+		}
+		@include breakpoint(xxs) {
+			flex: 0 1 100%;
+			max-width: 100%;
+		}
+		&:nth-child(2) {
+			border-left: 1px solid #e0e0e0;
+			border-right: 1px solid #e0e0e0;
+			@include breakpoint(700px) {
+				border: none;
+			}
+		}
+		svg {
+			fill: $accent;
+			height: 50px;
+			width: 50px;
+		}
+		p {
+			padding: 20px 10px 20px;
+			@include breakpoint(900px) {
+				padding: 20px 10px 0;
+			}
+			@include breakpoint(800px) {
+				padding: 20px 0 0;
+			}
+		}
+		a {
+			color: $text;
+			&:hover {
+				color: $accent;
+			}
+		}
+	}
+}
+.contacts-question {
+	margin-bottom: 80px;
+	&__col {
+		@include breakpoint(700px) {
+			.form {
+				margin: 0 auto;
+				max-width: 500px;
+			}
+		}
+		&:first-child {
+			flex: 0 1 75%;
+			max-width: 75%;
+			@include breakpoint(900px) {
+				flex: 0 1 100%;
+				max-width: 100%;
+			}
+		}
+		&:last-child {
+			margin-top: 20px;
+			flex: 0 1 25%;
+			max-width: 25%;
+			@include breakpoint(900px) {
+				flex: 0 1 100%;
+				max-width: 100%;
+			}
+			h5 {
+				font-size: 16px;
+				line-height: 32px;
+				font-weight: bold;
+				&:after {
+					content: '';
+					display: block;
+					height: 2px;
+					width: 50px;
+					margin: 15px auto 15px 0;
+					background: $accent;
+				}	
+			}
+			p {
+				line-height: 36px;
+				@include breakpoint(lg) {
+					line-height: 24px;
+				}
+			}
+		}
+	}
+}
+
+.contacts-form {
+	&__col {
+		flex: 0 0 50%;
+		max-width: 50%;
+		@include breakpoint(700px) {
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+		textarea {
+			height: 242px;
+		}
+	}
+}

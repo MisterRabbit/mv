@@ -1,0 +1,26 @@
+.btn {
+    background: transparent;
+    border: 0;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    transition: .3s;
+    &-white {
+        background: transparent;
+        color: #fff;
+        &:hover {
+            background: #fff;
+        }
+    }
+    &-accent {
+        background: $accent;
+        color: #fff;
+        &:hover {
+            background: $dark;
+        }
+        svg {
+            fill: #fff;
+        }
+    }
+}

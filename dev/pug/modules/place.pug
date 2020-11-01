@@ -1,0 +1,35 @@
+section.place#place
+	.place__tabs-header
+		.container
+			.place__tabs-buttons
+				button(data-tab="map" role="tab" aria-label="Показать карту").btn.place__tabs-button.active
+					+icon("map-marker-fill")
+					span Мы на карте
+				button(data-tab="way" role="tab" aria-label="Как добраться").btn.place__tabs-button
+					+icon("navigation-arrow")
+					span Как добраться
+	.place__tabs-content(role="tablist")
+		.place__tabs-item(data-tab="map" role="tabpanel").active.show
+			.place__map#js__map
+			a(href="" target="_blank").place__map-yandex Открыть на Яндекс.Картах в новом окне
+		.place__tabs-item(data-tab="way" role="tabpanel")
+			.container
+				.place__way.row
+					.place__way-column.col
+						.place__way-header
+							+icon("transport-car")
+							h6 На автомобиле
+						.place__way-body
+							p От МКАД съезд на Каширское шоссе в сторону Московской области. Далее, следуете по Каширскому шоссе, придерживаясь правой полосы. Пропускаете съезд в сторону аэропорта Домодедово и продолжаете движение по Каширскому шоссе до первого светофора (ориентир на местности - АЗС "BP"). Проезжаете светофор и через 100 метров на первом повороте сворачиваете налево. После продолжаете движение вперёд до конца дороги. Поздравляем, вы приехали!
+							a(href="https://yandex.ru/maps/?ll=37.769160%2C55.574998&z=15&mode=routes&rtext=~55.574032%2C37.760298&rtt=auto" target="_blank").place__way-route #[+icon("navigation-arrow")] Построить маршрут на карте
+					.place__way-column.col
+						.place__way-header
+							+icon("transport-public")
+							h6 Общественным транспортом
+						.place__way-body
+							p От станции метро Домодедовская. Автобусная остановка напротив ТЦ "Домодедовский". Автобусы: 364, 367, 420, 433, 439, 466, 496, 504, 505, 508, 512. Маршрутки: 367 и 439. Выходите на 4-ой по счету остановке ("Апаринки"). Перейдите через дорогу на светофоре и сверните направо. Пройдите 100 метров вдоль дороги до магазина сантехники и поверните налево. Войдя на территорию рынка, следуйте прямо до конца дороги. Поздравляем, вы пришли!
+							a(href="https://yandex.ru/maps/?ll=37.769160%2C55.574998&z=15&mode=routes&rtext=~55.574032%2C37.760298&rtt=mt&rtm=atm" target="_blank").place__way-route #[+icon("navigation-arrow")] Построить маршрут на карте
+
+					.place__way-column.col
+						p В случае затруднений мы всегда поможем вам сориентироваться на местности. Звоните: #[a(href="tel:" + phoneShort).place__way-phone #{phone}]
+						p #[a(href="assets/img/content/map.jpg" download).place__way-download #[+icon("download")] Скачать схему проезда (JPG, 171 КБ)]

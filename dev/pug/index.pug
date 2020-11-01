@@ -1,0 +1,122 @@
+extends template/index
+
+block variables
+	- var title = 'Главная страница'
+	- var pageClass = ''
+	- var pageUrl = 'index.html'
+
+block content
+
+	section(data-parallax="scroll" data-image-src="assets/img/content/banner.jpg" data-bleed="30" data-speed="0.6" data-natural-width="1920" data-natural-height="1200").banner
+		.container
+			.banner__wrapper
+				.banner__left
+					.banner__item
+						+icon("tools")
+						p Большинство видов работ#[br]#[a.trs(href="services.html") Подробнее]
+					.banner__item
+						+icon("spares")
+						p Онлайн заказ автозапчастей#[br]#[a(href="#" data-popup="spares").js__popup Сделать заказ]
+					.banner__item
+						+icon("crane")
+						p Эвакуатор круглосуточно#[br]#[a(href="tel:" + phoneShort) #{phone}]					
+				.banner__right
+					h5.banner__title Записаться в автосервис
+					form(name="apply" novalidate).form
+						.form__item
+							label(for="apply-type").form__label
+								span.form__req Название услуги
+							input.form__control#apply-type(
+								type="text"
+								name="type"
+								placeholder="Введите название услуги"
+								required)
+						.form__item
+							label(for="apply-date").form__label
+								span.form__req Дата и время визита
+							+iconTooltip("question", time, "right")
+							input.form__control#apply-date(
+								type="text"
+								name="date"
+								readonly="readonly"
+								placeholder="Укажите удобные вам время и дату"
+								required)
+						.form__item
+							label(for="apply-phone").form__label
+								span.form__req Номер телефона
+							+iconTooltip("question", "+7 (XXX) XXX-XX-XX", "right")
+							input.form__control.js__mask#apply-phone(
+								type="tel"
+								name="phone"
+								placeholder="Введите номер телефона"
+								required)
+						.form__submit
+							button(type="submit").btn.form__btn-submit #[+icon("envelope-fill")] Отправить
+	
+	include modules/achievements
+
+	section.brands
+		.container
+			.section-title
+				h3 Наша специализация
+				.line
+			ul.brands-carousel
+				+brandsItem("vw", "Volkswagen")
+				+brandsItem("sk", "Skoda")
+				+brandsItem("au", "Audi")
+				+brandsItem("st", "SEAT")
+				+brandsItem("bn", "Bentley")
+
+	section.feedback
+		.container
+			.feedback__inner.row
+				.feedback__item.col
+					.feedback__image
+						+icon("feedback_dialog")
+					.feedback__info
+						h3 С нами можно #[br] #[span посоветоваться]
+						p Задайте интересующий вопрос и мы поможем вам квалифицированным советом
+						button(data-popup="advice").btn.js__popup Задать вопрос
+				.feedback__item.col
+					.feedback__image
+						+icon("feedback_cart")
+					.feedback__info
+						h3 Заказ автозапчастей #[br] #[span онлайн]
+						p Мы самостоятельно найдем необходимую запчасть и доставим её в кратчайшие сроки
+						button(data-popup="spares").btn.js__popup Сделать заказ
+
+	include modules/advantages
+	
+	include modules/reviews
+	
+	section.blog
+		.container
+			.section-title
+				h3 Полезная информация
+				.line
+			ul.row.blog__list
+				li.col.blog__item
+					.blog__item-inner
+						p.blog__item-text При какой температуре замерзает бензин?
+						a(href="article.html").blog__item-link.trs Читать статью
+				li.col.blog__item
+					.blog__item-inner
+						p.blog__item-text При какой температуре замерзает бензин?
+						a(href="article.html").blog__item-link.trs Читать статью
+				li.col.blog__item
+					.blog__item-inner
+						p.blog__item-text Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ut culpa illo labore, sequi, ipsa placeat adipisci consectetur, nisi quibusdam architecto ad omnis corporis! Nihil fugit tempore rem nulla perspiciatis.
+						a(href="article.html").blog__item-link.trs Читать статью
+				li.col.blog__item
+					.blog__item-inner
+						p.blog__item-text При какой температуре замерзает бензин?
+						a(href="article.html").blog__item-link.trs Читать статью
+				li.col.blog__item
+					.blog__item-inner
+						p.blog__item-text При какой температуре замерзает бензин?
+						a(href="article.html").blog__item-link.trs Читать статью
+					
+	include modules/place
+
+block script
+	include modules/map-scripts

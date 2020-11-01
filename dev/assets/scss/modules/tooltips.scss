@@ -1,0 +1,39 @@
+.tooltipster-sidetip {
+   .tooltipster-box {
+        background: $accent;
+        border: 0;
+        border-radius: 4px;
+        max-width: 200px;
+        text-align: center;
+    }
+    .tooltipster-content {
+        color: #fff;
+        font-size: 14px;
+        line-height: 18px;
+        padding: 6px 9px;
+    }
+    &.tooltipster-bottom {
+        .tooltipster-arrow-background,
+        .tooltipster-arrow-border {
+            border-bottom-color: $accent;
+        }
+    }
+    &.tooltipster-left {
+        .tooltipster-arrow-background,
+        .tooltipster-arrow-border {
+            border-left-color: $accent;
+        }
+    }
+    &.tooltipster-right {
+        .tooltipster-arrow-background,
+        .tooltipster-arrow-border {
+            border-right-color: $accent;
+        }
+    }
+    &.tooltipster-top {
+        .tooltipster-arrow-background,
+        .tooltipster-arrow-border {
+            border-top-color: $accent;
+        }
+    }
+} 

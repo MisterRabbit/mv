@@ -1,0 +1,58 @@
+.reviews {
+    padding: 30px 0 50px;
+    .section-title {
+        h3 {
+            font-size: 22px;
+            color: #fff;
+        }
+    }
+    &-carousel {
+        margin: 0 -15px;
+        @include breakpoint(xl) {
+            margin: 0 -10px;
+        }
+        &__item {
+            background: #fff;
+            text-align: center;
+            min-height: 280px;
+            margin: 0 25px;
+            position: relative;
+            font-size: 16px;
+            color: #565656;
+            @include breakpoint(xl) {
+                margin: 0 10px;
+            }
+            &:focus {
+                outline: 0;
+            }
+            p {
+                font-style: italic;
+                line-height: 32px;
+                padding: 20px 20px 40px;
+                @include breakpoint(lg) {
+                    line-height: 28px;
+                    padding: 15px 10px 40px;
+                }
+                @include breakpoint(840px) {
+                    line-height: 32px;
+                    padding: 20px 20px 40px;
+                }
+                @include breakpoint(640px) {
+                    line-height: 28px;
+                    padding: 15px 10px 40px;
+                }
+                @include breakpoint(sm) {
+                    line-height: 32px;
+                    padding: 20px 20px 40px;
+                }
+            }
+            span {
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+                bottom: 20px;
+                width: 100%;
+            }
+        }
+    }
+}

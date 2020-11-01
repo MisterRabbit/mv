@@ -1,0 +1,33 @@
+.page-title {
+		margin: 40px 0;
+		@include breakpoint(sm) {
+			margin: 25px 0;
+		}
+	&__header {
+		position: relative;
+		padding: 0 0 20px 50px;
+		font-size: 22px;
+		font-weight: normal;
+		@include breakpoint(sm) {
+			font-size: 21px;
+		}
+		border-bottom: 1px solid #e0e0e0;
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			width: 10px;
+			height: 20px;
+			top: 2px;
+			transform: skewX(-35deg);
+		}
+		&:before {
+			left: 10px;
+			background: $gray;
+		}
+		&:after {
+			left: 24px;
+			background: $accent;
+		}
+	}
+}

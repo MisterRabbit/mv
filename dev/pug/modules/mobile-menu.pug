@@ -1,0 +1,24 @@
+.mobile-nav
+    .mobile-nav__header
+        span Меню
+        button(aria-label="Закрыть мобильное меню").btn.mobile-nav__close
+            +icon("close")
+    ul.mobile-nav__list
+        each item in content.mainNavItems
+            +mobileNavItem(item.url, item.name, pageUrl)
+    .mobile-nav__footer
+        h6 Наши контакты
+        ul.mobile-nav__list-info
+            li.mobile-nav__list-item
+                +icon("phone")
+                a(href="tel:" + phoneShort).mobile-nav__list-link #{phone}
+            li.mobile-nav__list-item
+                +icon("clock")
+                span.mobile-nav__list-text #{time}
+            li.mobile-nav__list-item
+                +icon("envelope")
+                a(href="mailto:" + email).mobile-nav__list-link #{email}
+            li.mobile-nav__list-item
+                +icon("map-marker")
+                span.mobile-nav__list-text #{address}
+            

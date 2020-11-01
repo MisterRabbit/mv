@@ -1,0 +1,8 @@
+section.advantages
+	.container
+		.section-title
+			h3 Почему нам #[b доверяют] свои автомобили
+			.line
+		ul.advantages__list.row
+			each item in content.advantagesItems
+				+advantagesItem(item.icon, item.title, item.text)

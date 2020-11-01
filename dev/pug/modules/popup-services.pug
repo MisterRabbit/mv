@@ -1,0 +1,52 @@
+.popup#popup-service
+	.popup__wrapper(role="dialog")
+		.popup__header
+			h5(tabindex="0") #[span Онлайн] запись в автосервис
+			button(aria-label="Закрыть окно").btn.popup__close
+				+icon("close")
+		.popup__body
+			form(name="service" novalidate).form
+				.form__item
+					label(for="service-type").form__label
+						span.form__req Название услуги
+					input.form__control#service-type(
+						type="text"
+						name="type"
+						placeholder="Введите название услуги"
+						required)
+				.form__item
+					label(for="service-date").form__label
+						span.form__req Дата и время визита
+					+iconTooltip("question", time, "right")
+					input.form__control#service-date(
+						type="text"
+						name="date"
+						readonly="readonly"
+						placeholder="Укажите удобные вам время и дату"
+						required)
+				.form__item
+					label(for="service-name").form__label
+						span.form__req Имя
+					+iconTooltip("question", "Поле должно состоять из букв (от 2 до 40)", "right")
+					input.form__control#service-name(
+						type="text"
+						name="name"
+						maxlength="40"
+						placeholder="Введите ваше имя"
+						required)
+				.form__item
+					label(for="service-phone").form__label
+						span.form__req Номер телефона
+					+iconTooltip("question", "+7 (XXX) XXX-XX-XX", "right")
+					input.form__control.js__mask#service-phone(
+						type="tel"
+						name="phone"
+						placeholder="Введите номер телефона"
+						required)
+				.form__item
+					input.form__checkbox#service-agreement(
+						type="checkbox"
+						required)
+					label(for="service-agreement").form__checkbox-label Согласие на обработку персональных данных в соответствии с #[a(href="user-agreement.html").trs Пользовательским соглашением]
+				.form__submit
+					button(type="submit").btn.form__btn-submit #[+icon("envelope-fill")] Отправить

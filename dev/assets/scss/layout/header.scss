@@ -1,0 +1,166 @@
+.header {
+	&-mobile {
+		display: none;
+		background: $light;
+		@include breakpoint(700px) {
+			display: block;
+		}
+	}
+	&-upper {
+		height: 40px;
+		align-items: center;
+		font-size: 14px;
+		color: #7d7d7d;
+		display: flex;
+		&__map {
+			margin-left: auto;
+		}
+		&__link {
+			&.scrollto,
+			&.trs {
+				color: #7d7d7d;
+				text-decoration: underline;
+				text-decoration-color: #bfbfbf;
+				&:hover {
+					text-decoration-color: $accent;
+					color: $accent;
+				}	
+			}
+			&.scrollto {
+				text-decoration-style: dashed;
+			}
+		}
+	}
+	&-top {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		display: flex;
+		@include breakpoint(700px) {
+			justify-content: center;
+		}
+		@include breakpoint(xs) {
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+		&__right {
+			@include breakpoint(700px) {
+				display: none;
+			}
+		}
+		&__logo {
+			@include breakpoint(960px) {
+				height: 70px;
+			}
+		}
+		&__logo-link {
+			display: block;
+			&:hover {
+				opacity: 0.7;
+				transition: .5s;
+			}
+		}
+		&__right {
+			display: flex;
+			margin-left: auto;
+			align-self: center;
+		}
+		&__box {
+			display: flex;
+			color: $gray;
+			font-size: 14px;
+			height: 40px;
+		}
+		&__phone {
+			@include breakpoint(900px) {
+				display: none;
+			}
+		}
+		&__time {
+			margin: 0 4.5vw;
+			padding: 0 4.5vw;
+			border-right: 1px #ccc solid;
+			border-left: 1px #ccc solid;
+			@include breakpoint(xl) {
+				margin: 0 3.5vw;
+				padding: 0 3.5vw;
+			}
+			@include breakpoint(lg) {
+				margin: 0 2.5vw;
+				padding: 0 2.5vw;
+			}
+			@include breakpoint(900px) {
+				border-left: none;
+				margin: 0 3.5vw;
+				padding: 0 3.5vw;
+				margin-left: 0;
+				padding-left: 0;
+			}
+		}
+		&__map {
+			.header-top__link,
+			.scrollto {
+				text-decoration: underline;
+				text-decoration-color: #7d7d7d;
+				&:hover {
+					text-decoration-color: $accent;
+				}
+			}
+			.scrollto {
+				text-decoration-style: dashed;
+			}
+		}
+		&__icon {
+			align-self: center;
+			svg {
+				fill: $accent;
+				width: 30px;
+				height: 30px;
+			}
+		}
+		&__info {
+			align-self: center;
+			margin-left: 12px;
+		}
+		&__title {
+			font-weight: bold;
+			display: block;
+			margin-bottom: 4px;
+		}
+		&__text,
+		&__link {
+			color: $gray;
+		}
+	}
+	&-nav {
+		display: flex;
+		@include breakpoint(lg) {
+			height: 50px;
+		}
+		&__wrapper {
+			background: $gray;
+			&.fixed {
+				position: fixed;
+				width: 100%;
+				top: 0;
+				z-index: 10;
+				@media screen and (max-width: $md) and (orientation: landscape) {
+					display: none;
+				}
+			}
+		}
+		&__left {
+			margin-right: auto;
+		}
+		&__right {
+			margin-left: auto;
+			align-self: center;
+		}
+	}
+}
+
+.scroll-indicator {
+	height: 3px;
+	background: $accent;
+	position: absolute;
+	left: 0;
+}

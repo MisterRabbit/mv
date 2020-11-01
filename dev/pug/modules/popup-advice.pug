@@ -1,0 +1,40 @@
+.popup#popup-advice
+	.popup__wrapper(role="dialog")
+		.popup__header
+			h5(tabindex="0") #[span Есть вопросы?] Не стесняйтесь!
+			button(aria-label="Закрыть окно").btn.popup__close
+				+icon("close")
+		.popup__body
+			p.popup__disc Наши специалисты будут рады помочь вам #[span квалифицированным] советом и, если вы захотите, запишут на посещение нашего автосервиса
+			form(name="advice" novalidate).form
+				.form__item
+					label(for="advice-type").form__label
+						span.form__req Интересующий вопрос
+					+iconTooltip("question", "Поле должно содержать от 20 до 1000 символов", "right")
+					textarea.form__control.js__count-area#advice-type(
+						type="text"
+						name="message"
+						maxlength="1000"
+						placeholder="Введите текст вопроса"
+						required)
+					.form__symbols-counter #[span#js__symbols-counter 0]/1000
+				.form__item
+					label(for="advice-phone").form__label
+						span.form__req Номер телефона
+					+iconTooltip("question", "+7 (XXX) XXX-XX-XX", "right")
+					input.form__control.js__mask#advice-phone(
+						type="tel"
+						name="phone"
+						placeholder="Введите номер телефона"
+						required)
+				.form__submit
+					button(type="submit").btn.form__btn-submit Жду ответа
+		.popup__bottom
+			p.popup__disc С нами также можно связаться любым удобным для вас способом:
+			.socials.socials__advice
+				ul.socials__list
+					li.socials__item
+						a(href="tel:" + phoneShort title="Позвонить нам").socials__link.tooltip
+							+icon("callback")
+					each item in content.socialItems
+						+socialItemPopup(item.url, item.text, item.name)

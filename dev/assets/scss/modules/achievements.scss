@@ -1,0 +1,60 @@
+.achievements {
+    padding: 50px 0;
+    background: #ffffff;
+    @include breakpoint(md) {
+        padding: 40px 0;        
+    }
+    @include breakpoint(450px) {
+        padding: 20px 0 40px;
+    }
+    &__symbol {
+        font-size: 50px;
+        color: #bbb;
+        font-weight: bold;
+        margin-right: 10px;
+        @include breakpoint(md) {
+            font-size: 45px;
+        }
+    }
+    &__years,
+    &__clients,
+    &__percents {
+        font-size: 50px;
+        font-weight: bold;
+        @include breakpoint(md) {
+            font-size: 45px;
+        }
+    }
+    &__item {
+        max-width: 33.333333%;
+        &:last-child {
+            .achievements__symbol {
+                margin-left: 10px;
+            }
+            @include breakpoint(md) {
+                margin-top: 20px;
+                max-width: 100%;
+                flex: 0 0 100%;
+            }
+        }
+        @include breakpoint(md) {
+            flex: 0 0 50%;
+            max-width: 50%;
+            text-align: center;
+        }
+        @include breakpoint(450px) {
+            flex: 0 0 100%;
+            max-width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+        p {
+            font-size: 20px;
+            white-space: nowrap;
+            @include breakpoint(900px) {
+                font-size: 18px;
+            }
+        }
+    }
+    
+}

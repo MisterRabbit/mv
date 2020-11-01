@@ -1,0 +1,14 @@
+.copyright {
+    padding: 20px 0;
+    @include breakpoint(900px) {
+        padding: 20px 0 60px;
+    }
+    &__text {
+        font-size: 14px;
+        line-height: 20px;
+        color: #fff;
+    }
+    &__link {
+        color: #929292;
+    }
+}

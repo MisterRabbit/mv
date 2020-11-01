@@ -1,0 +1,30 @@
+$brands: vw, sk, au, st, bn;
+
+.brands {
+    background: $light;
+    padding: 20px 0 60px;
+    &-carousel {
+        &__item {
+            &:focus {
+                outline: none;
+            }
+            img {
+                margin: 0 auto;
+                opacity: 0;
+                transition: .5s;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+            @each $brand in $brands {
+                &__#{$brand} {
+                    background: url(../img/content/brands/#{$brand}.png) no-repeat center center;
+                    background-size: 182px 110px;
+                }
+            }
+            
+        }
+
+    }
+}
+

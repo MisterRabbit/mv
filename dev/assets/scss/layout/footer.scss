@@ -1,0 +1,181 @@
+.footer {
+    border-top: 3px solid $accent;
+    background: url(../img/content/footer-bg.png) no-repeat;
+    background-size: cover;
+    background-color: $gray;
+    color: #fff;
+    &-top {
+        padding: 40px 0 10px;
+        &__item {
+            display: flex;
+            max-width: 33.333333%;
+            margin-bottom: 30px;
+            &:nth-child(2) {
+                .footer-top__text {
+                    @include breakpoint(xl) {
+                        margin-left: 0;
+                    }
+                }
+            }
+            @include breakpoint(lg) {
+                flex-direction: column;
+            }
+            @include breakpoint(540px) {
+                flex-direction: row;
+                flex: 0 1 100%;
+                max-width: 100%;
+            }
+            & > svg {
+                fill: #fff;
+                height: 75px;
+                width: 75px;
+                flex-shrink: 0;
+                @include breakpoint(xl) {
+                    height: 65px;
+                    width: 65px;
+                }
+                @include breakpoint(lg) {
+                    margin: 0 auto 10px;
+                }
+                @include breakpoint(540px) {
+                    margin: 0 20px 0 0;
+                    height: 70px;
+                    width: 70px;
+                }
+                @include breakpoint(xxs) {
+                    margin: 0 15px 0 0;
+                    height: 62px;
+                    width: 62px;
+                }
+            }
+        }
+        &__text {
+            font-size: 18px;
+            align-self: center;
+            margin-left: 10px;
+            line-height: 27px;
+            @include breakpoint(xl) {
+                font-size: 16px;
+            }
+            @include breakpoint(lg) {
+                margin-left: 0;
+                text-align: center;
+            }
+            @include breakpoint(md) {
+                font-size: 15px;
+                line-height: 23px;
+            }
+            @include breakpoint(540px) {
+                text-align: left;
+                font-size: 17px;
+            }
+            @include breakpoint(xxs) {
+                font-size: 15px;
+            }
+            svg {
+                cursor: pointer;
+                fill: #909090;
+                height: 16px;
+                width: 16px;
+            }
+            a,
+            span {
+                color: $accent;
+                font-weight: bold;
+            }
+        }
+    }
+    &-main {
+        &__divider {
+            border-top: 1px solid #bbb;
+        }
+        &__wrapper {
+            padding-top: 50px;
+        }
+        &__item {
+            margin-bottom: 30px;
+            &:nth-child(3) {
+                @include breakpoint(lg) {
+                    display: none;
+                }
+            }
+            &:nth-child(2) {
+                @include breakpoint(800px) {
+                    display: none;
+                }
+            }
+            &:last-child {
+                @include breakpoint(xs) {
+                    max-width: 300px;
+                }    
+            }
+            @include breakpoint(xs) {
+                flex: 0 1 100%;
+                width: 100%;
+            }
+            h6 {
+                text-transform: uppercase;
+                font-size: 18px;
+                font-weight: normal;
+                &:after {
+                    content: "";
+                    display: block;
+                    height: 2px;
+                    width: 50px;
+                    background: $accent;
+                    margin: 15px 0;
+                }
+            }
+        }
+        &__list {
+            font-size: 14px;
+            line-height: 28px;
+            &__not-marked {
+                a {
+                    color: $accent;
+                    // font-weight: bold;
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+            }
+            li {
+                span {
+                    float: right;
+                }
+            }
+        }
+        &__link {
+            color: #fff;
+            margin-left: 0;
+            display: inline-block;
+            position: relative;
+            padding-left: 24px;
+            &:hover {
+                margin-left: 7px;
+            }
+            &:before {
+                content: "";
+                background-image: url(../img/common/checked-symbol.svg);
+                position: absolute;
+                height: 15px;
+                width: 15px;
+                left: 0;
+                top: 6px;
+			}
+			&.full-list {
+				color: #929292;
+				text-decoration: underline;
+				&:before {
+					content: none;
+				}
+				&:hover {
+					color: $accent;
+				}
+			}
+        }
+    }
+    &-bottom {
+        background: $dark;
+    }
+}

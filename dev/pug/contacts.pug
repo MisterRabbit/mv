@@ -1,0 +1,89 @@
+extends template/main
+
+block variables
+	- var title = 'Контакты'
+	- var pageClass = ''
+	- var pageUrl = 'contacts.html'
+
+block content
+	section.contacts-info
+		.container
+			.row.contacts-info__row
+				.col.contacts-info__col
+					+icon("smartphone")
+					p #[a(href="tel:" + phoneShort) #{phone}]
+				.col.contacts-info__col
+					+icon("map-marker-bold")
+					p #{address}
+				.col.contacts-info__col
+					+icon("envelope-bold")
+					p #[a(href="mailto:" + email) #{email}]
+	section.page-title
+		.container
+			h3.page-title__header Остались вопросы? Напишите, и мы обязательно Вам ответим!
+
+	section.contacts-question
+		.container
+			.row.contacts-question__row
+				.col.contacts-question__col
+					form(name="question" novalidate).form
+						.row.contacts-form__wrapper
+							.col.contacts-form__col
+								.form__item
+									label(for="question-name").form__label
+										span.form__req Имя
+									+iconTooltip("question", "Поле должно состоять из букв (от 2 до 40)", "right")
+									input.form__control#question-name(
+										type="text"
+										name="name"
+										maxlength="40"
+										placeholder="Введите ваше имя"
+										required)
+								.form__item
+									label(for="question-phone").form__label
+										span.form__req Номер телефона
+									+iconTooltip("question", "+7 (XXX) XXX-XX-XX", "right")
+									input.form__control.js__mask#question-phone(
+										type="tel"
+										name="phone"
+										placeholder="Введите номер телефона"
+										required)
+								.form__item
+									label(for="question-email").form__label
+										span.form__req Электронная почта
+									+iconTooltip("question", "example@email.ru", "right")
+									input.form__control#question-email(
+										type="email"
+										name="email"
+										placeholder="Введите адрес эл. почты"
+										required)
+								.form__item
+									input.form__checkbox#question-agreement(
+										type="checkbox"
+										required)
+									label(for="question-agreement").form__checkbox-label Согласие на обработку персональных данных в соответствии с #[a(href="user-agreement.html").trs Пользовательским соглашением]
+							.col.contacts-form__col
+								.form__item
+									label(for="question-type").form__label
+										span.form__req Интересующий вопрос
+									+iconTooltip("question", "Поле должно содержать от 20 до 1000 символов", "right")
+									textarea.form__control.js__count-area#question-type(
+										type="text"
+										name="message"
+										maxlength="1000"
+										placeholder="Введите текст вопроса"
+										required)
+									.form__symbols-counter #[span#js__symbols-counter 0]/1000
+								.form__submit
+									button(type="submit").btn.form__btn-submit #[+icon("envelope-fill")] Отправить
+				.col.contacts-question__col
+					h5 ООО "МВ-МОТОРС"
+					p ИНН/КПП: 7724331754/772401001
+					p ОГРН: 1157746798153
+					p Адрес: 115409, г. Москва, ул. Кантемировская, дом 20, корпус 1, квартира 343
+
+
+	include modules/place
+
+block script
+	include modules/map-scripts

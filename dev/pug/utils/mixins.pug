@@ -1,0 +1,77 @@
+//- mixin icon(name,mod)
+//- 	if(mod)
+//- 		svg(class="svg-icon__" + name + ' ' + mod)
+//- 			use(xlink:href="assets/img/svg/symbol/sprite.svg#" + name)
+//- 	else
+//- 		svg(class="svg-icon__" + name)
+//- 			use(xlink:href="assets/img/svg/symbol/sprite.svg#" + name)
+mixin icon(name, mod)
+	if(mod)
+		svg(class="svg-icon__" + mod)
+			use(xlink:href="assets/img/svg/symbol/sprite.svg#" + name)
+	else
+		svg
+			use(xlink:href="assets/img/svg/symbol/sprite.svg#" + name)
+
+mixin iconTooltip(name, text, position)
+	if(position)
+		svg(title=text).tooltip-right
+			use(xlink:href="assets/img/svg/symbol/sprite.svg#" + name)
+	else
+		svg(title=text).tooltip
+			use(xlink:href="assets/img/svg/symbol/sprite.svg#" + name)
+
+mixin mainNavItem(url, name, active)
+	li.main-nav__item
+		if url === active
+			a(href="/" + url).main-nav__link.trs.active= name
+		else
+			a(href="/" + url).main-nav__link.trs= name
+
+mixin mobileNavItem(url, name, active)
+	li.mobile-nav__item
+		if url === active
+			a(href="/" + url).mobile-nav__link.trs.active= name
+		else
+			a(href="/" + url).mobile-nav__link.trs= name
+
+mixin socialItem(url, text, name)
+	li(class="socials__item socials__item__" + name)
+		a(href="/" + url title=text target="_blank").socials__link.tooltip
+			+icon(name)
+
+mixin socialItemPopup(url, text, name)
+	li.socials__item
+		a(href="/" + url title=text target="_blank").socials__link.tooltip
+			+icon(name)
+
+mixin brandsItem(brand, title)
+	li(class="brands-carousel__item brands-carousel__item__" + brand)
+		img(src="assets/img/content/brands/" + brand + "-color.png", alt=title)
+
+mixin advantagesItem(icon, title, text)
+	li.advantages__item.col
+		.advantages__icon
+			+icon(icon)
+		.advantages__info
+			h4= title
+			p= text
+
+mixin reviewsItem(name, text)
+	li.reviews-carousel__item
+		p= text
+		span= name
+		
+mixin footerServicesItem(text)
+	li
+		a(href="#" data-popup="service").footer-main__link.js__popup= text
+
+mixin service(text)
+	li
+		a(href="" data-popup="service").js__popup= text
+
+mixin sevicesNavItem(index, text)
+	li.services-nav__item
+		a.services-nav__link(href=index)= text
+
+		

@@ -1,0 +1,46 @@
+.callback {
+    background: $gray;
+    position: fixed;
+    bottom: 0;
+    right: 48px;
+    height: 48px;
+    color: #fff;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    
+    svg {
+        fill: #fff;
+        height: 22px;
+        width: 22px;
+        margin-right: 10px;
+    }
+    &:hover {
+        animation: swing .6s ease;
+        animation-iteration-count: 1;
+    }
+    @include breakpoint(sm) {
+        display: none;
+    }
+    @media screen and (max-width: $md) and (orientation: landscape) {
+        display: none;
+    }
+}
+.scrollup {
+    height: 48px;
+    width: 48px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    transition: none;
+    background: $accent;
+    &:hover {
+        background: $dark;
+        transition: .3s;
+    }
+    svg {
+        height: 20px;
+        width: 20px;
+        fill: #fff;
+    }
+}

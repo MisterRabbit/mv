@@ -1,0 +1,28 @@
+.preloader__overlay {
+	position: fixed;
+	background: #fff;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 100000;
+}
+.preloader {
+	height: 50px;
+	width: 50px;
+	position: absolute;
+	left: calc(50% - 25px);
+	top: calc(50% - 25px);
+	border: 5px solid rgba(44, 52, 61, 0.45);
+	border-radius: 100%;
+	border-top: 5px solid $accent;
+	animation: rotate 1s infinite linear;
+}
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

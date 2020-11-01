@@ -1,0 +1,226 @@
+// Styles for blog section
+
+.blog {
+    padding: 30px 0 75px;
+    background: url(../img/content/engine.png) no-repeat;
+    background-position: right;
+    background-attachment: fixed;
+    background-color: #fff;
+    &__item {
+        margin-bottom: 30px;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        @include breakpoint(lg) {
+            margin-bottom: 20px;
+        }
+        @include breakpoint(800px) {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        @include breakpoint(sm) {
+            flex: 0 0 100%;
+            max-width: 100%;
+            &:nth-child(n+4) {
+                display: none;
+            }
+        }
+    }
+    &__item-inner {
+        padding: 30px;
+        background: url(../img/content/article.png) no-repeat;
+        background-position: -50px -40px;
+        background-color: rgba(54, 64, 75, 0.95);
+        text-align: center;
+        height: 200px;
+        overflow: hidden;
+        @include breakpoint(lg) {
+            padding: 30px 10px 30px;
+        }
+        @include breakpoint(sm) {
+            padding: 30px;
+        }
+        @include breakpoint(xxs) {
+            padding: 30px 10px 30px;
+        }
+        &:hover {
+            .blog__item-text {
+                margin-top: 0;
+            }
+            .blog__item-link {
+                margin-top: 0;
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+    &__item-text,
+    &__item-link  {
+        color: #fff;
+        font-size: 18px;
+        line-height: 2em;
+        &:after {
+            content: "";
+            display: block;
+            background: $accent;
+            height: 2px;
+            width: 100px;
+        }
+        @include breakpoint(lg) {
+            margin-top: 0;
+        }
+        @include breakpoint(xxs) {
+            font-size: 17px;
+        }
+    }
+    &__item-text {
+        margin-top: 20px;
+        transition: .5s;
+        height: 82px;
+        overflow-y: hidden;
+        position: relative;
+        &:after {
+            position: absolute;
+            top: 76px;
+            left: calc(50% - 50px);
+        }
+        @include breakpoint(xxs) {
+            height: 77px;
+            &:after {
+                top: 70px;
+            }
+        }
+    }
+    &__item-link {
+        margin-top: 30px;
+        visibility: hidden;
+        opacity: 0;
+        @include breakpoint(lg) {
+        margin-top: 0;
+        visibility: visible;
+        opacity: 1;
+            &:after {
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        &:after {
+            visibility: hidden;
+            opacity: 0;
+            margin: 6px auto;
+            transform: translateY(30px);
+            transition: .5s;
+        }
+        &:hover {
+            color: #fff;
+            &:after {
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+}
+
+.blog-grid {
+	&__item {
+		max-width: 50%;
+		flex: 0 1 50%;
+		transition: .3s;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		margin-bottom: 30px;
+		display: flex;
+		flex-direction: column;
+		flex: 1 0 auto;
+		@include breakpoint(sm) {
+			max-width: 100%;
+			flex: 0 1 100%;
+			margin-bottom: 15px;
+			padding-bottom: 0;
+		}
+		&:hover {
+			transform: translateY(-10px);
+			box-shadow: 2px 3px 16px #d0d0d0;
+			background: #fff;
+			p {
+				color: $text;
+			}
+			@include breakpoint(sm) {
+				transform: none;
+				box-shadow: none;
+			}
+		}
+		h5 {
+			font-size: 18px;
+			font-weight: normal;
+			line-height: 27px;
+			flex: 1 0 auto;
+			@include breakpoint(350px) {
+				
+			}
+			&:after {
+				content: '';
+				display: block;
+				height: 2px;
+				background: $accent;
+				width: 50px;
+				margin: 15px auto 15px 0;	
+			}
+		}
+	}
+	&__item-body {
+		margin-bottom: 15px;
+		position: relative;
+		max-height: 150px;
+		overflow-y: hidden;
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			height: 40px;
+			width: 100%;
+			left: 0;
+			background: linear-gradient(to top, #fff, transparent);
+		}
+		p {
+			line-height: 24px;
+			color: #828282;
+			transition: .3s;
+		}
+	}
+	&__item-footer {
+		@include breakpoint(sm) {
+			padding-bottom: 15px;
+			border-bottom: 1px solid #e0e0e0;
+		}
+		a {
+			color: $accent;
+			padding-left: 0;
+			&:hover {
+				padding-left: 7px;
+			}
+		}
+	}
+}
+
+.blog-recents {
+	h5 {
+		font-size: 16px;
+		&:after {
+			content: '';
+			display: block;
+			height: 2px;
+			background: $accent;
+			width: 50px;
+			margin: 15px auto 15px 0;
+		}
+	}
+	li {
+		margin-bottom: 5px;
+	}
+	a {
+		line-height: 27px;
+	}
+}
+// Styles for blog grid and aside section

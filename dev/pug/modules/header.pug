@@ -1,0 +1,65 @@
+header.header
+	.header-top__wrapper
+		.header-mobile
+			.container
+				.header-upper
+					.header-upper__time
+						span.header-upper__text #{time}
+					.header-upper__map
+						if pageUrl === "index.html"
+							a(href="#place").header-upper__link.scrollto Мы на карте
+						else if pageUrl === "contacts.html"
+							a(href="#place").header-upper__link.scrollto Мы на карте
+						else
+							a(href="/contacts.html#place").header-upper__link.trs Мы на карте	
+		.container.header-top
+			.header-top__left
+				a(href="index.html" aria-label="Вернуться на главную страницу").header-top__logo-link.trs
+					img(src="assets/img/common/logo.png", alt="МВ-МОТОРС - домашний автосервис").header-top__logo
+			.header-top__right
+				.header-top__box.header-top__phone
+					.header-top__icon
+						+icon("phone")
+					.header-top__info
+						span.header-top__title Звоните нам
+						a(href="tel:" + phoneShort).header-top__link #{phone}
+				.header-top__box.header-top__time
+					.header-top__icon
+						+icon("clock")
+					.header-top__info
+						span.header-top__title Время работы
+						span.header-top__text #{time}
+				.header-top__box.header-top__map
+					.header-top__icon
+						+icon("map-marker")
+					.header-top__info
+						span.header-top__title Мы на карте
+						if pageUrl === "index.html"
+							a(href="#place").header-top__link.scrollto Открыть карту
+						else if pageUrl === "contacts.html"
+							a(href="#place").header-top__link.scrollto Открыть карту
+						else
+							a(href="/contacts.html#place").header-top__link.trs Открыть карту
+
+	.header-nav__wrapper
+		.container.header-nav
+			.header-nav__left
+				button(aria-label="Открыть меню").btn.open-menu
+					span
+				nav.main-nav
+					ul.main-nav__list
+						each item in content.mainNavItems
+							+mainNavItem(item.url, item.name, pageUrl)
+			.header-nav__right
+				.socials.socials__main-nav
+					ul.socials__list
+						each item in content.socialItems
+							+socialItem(item.url, item.text, item.name)
+						li.socials__item.socials__item__phone
+							a(href="tel:" + phoneShort title="Позвонить нам").socials__link.tooltip
+								+icon("callback")
+							a(href="tel:" + phoneShort).socials__link__phone #{phone}
+		.scroll-indicator
+				
+
+						//- p(class="tel:" + phone) phone: #{phone}

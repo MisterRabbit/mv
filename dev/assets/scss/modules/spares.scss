@@ -1,0 +1,58 @@
+.spares {
+	margin-bottom: 40px;
+	&__disc {
+		font-size: 18px;
+		line-height: 25px;
+		margin-bottom: 30px;
+		@include breakpoint(sm) {
+			line-height: 24px;
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
+	}
+	&__wrapper {
+		max-width: 900px;
+		margin: 0 auto;
+		@include breakpoint(lg) {
+			max-width: unset;
+		}
+		@include breakpoint(md) {
+			max-width: 500px;
+			margin: 0 auto;
+		}
+		@include breakpoint(sm) {
+			max-width: unset;
+			margin-right: -10px;
+			margin-left: -10px;
+		}
+	}
+	&__column {
+		flex: 0 1 50%;
+		max-width: 50%;
+		@include breakpoint(md) {
+			flex: 0 1 100%;
+			max-width: 100%;
+		}
+		&:last-child {
+			flex: 0 1 100%;
+			max-width: 100%;
+			@include breakpoint(xxs) {
+				padding-top: 15px;
+			}
+		}
+
+	}
+	.form {
+		&__btn-submit {
+			margin-right: auto;
+			text-transform: uppercase;
+			background: $accent;
+			letter-spacing: 1px;
+			font-size: 16px;
+			font-weight: bold;
+			&:hover {
+				background: $gray;
+			}
+		}
+	}
+}

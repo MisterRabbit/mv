@@ -1,0 +1,106 @@
+extends template/main
+
+block variables
+	- var title = 'Онлайн заказ автозапчастей'
+	- var pageClass = ''
+	- var pageUrl = 'spares.html'
+
+block content
+	section.spares
+		.container
+			p.spares__disc Не тратьте своё время на поиск запчатей! Просто #[span сделайте заказ], а всё остальное мы возьмем на себя. В кратчайшие сроки мы свяжемся с нашими поставщиками, доставим нужную запчасть, и если будет необходимо, наши мастера установят её на ваш автомобиль.
+			form(name="spares" enctype="multipart/form-data" novalidate).form
+				.row.spares__wrapper
+					.col.spares__column
+						.form__item
+							label(for="spares-name").form__label
+								span.form__req Имя
+							+iconTooltip("question", "Поле должно состоять из букв (от 2 до 40)", "right")
+							input.form__control#spares-name(
+								type="text"
+								name="name"
+								maxlength="40"
+								placeholder="Введите ваше имя"
+								required)
+						.form__item
+							label(for="spares-phone").form__label
+								span.form__req Номер телефона
+							+iconTooltip("question", "+7 (XXX) XXX-XX-XX", "right")
+							input.form__control.js__mask#spares-phone(
+								type="tel"
+								name="phone"
+								placeholder="Введите номер телефона"
+								required)
+						.form__item
+							label(for="spares-vin").form__label
+								span.form__req VIN-код
+							+iconTooltip("question", "17 цифр или заглавных букв лат. алфавита (А1B6C39NM...)", "right")
+							input.form__control#spares-vin(
+								type="text"
+								name="vin"
+								placeholder="Введите VIN-код"
+								required)
+						.form__item
+							label(for="spares-spare").form__label
+								span.form__req Наименование запчасти
+							+iconTooltip("question", "Не более 100 символов", "right")
+							input.form__control#spares-spare(
+								type="text"
+								name="spare"
+								maxlength="100"
+								placeholder="Введите наименование запчасти"
+								required)
+						.form__item
+							label(for="spares-choise").form__label
+								span.form__req Какие запчасти нужны
+							select.form__control#spares-choise(
+								name="choise"
+								required)
+								option Оригинальные и неоригинальные
+								option Только оригинальные
+								option Только неоригинальные
+					.col.spares__column
+						.form__item
+							label(for="spares-file").form__label
+								span Фотография запчасти
+							+iconTooltip("question", "Файл формата .png, .jpeg, .gif, .jpg не более 5 Мбайт", "right")
+							button.btn.form__removefile#js__removefile(aria-label="Удалить загруженный файл") Удалить
+								+icon("trashcan")
+							.form__dropzone#js__dropzone
+								.form__choosefile
+									+icon("upload")
+									p #[span Выберите файл] или#[br] перетащите его сюда
+								input.form__file#spares-file(
+									type="file"
+									name="file"
+									accept="image/*")
+								.form__uploadresult#js__uploadresult
+								.form__filelabel#js__filelabel
+
+						.form__item
+							input.form__checkbox#spares-agreement(
+								type="checkbox"
+								required)
+							label(for="spares-agreement").form__checkbox-label Согласие на обработку персональных данных в соответствии с #[a(href="user-agreement.html").trs Пользовательским соглашением]
+					.col.spares__column
+						.form__submit
+							button(type="submit").btn.form__btn-submit Сделать заказ
+	
+	section.spares-advantages
+		.container
+			.section-title
+				h3 #[span Почему] заказывать запчасти выгодно у нас
+				.line
+			ul.row.spares-advantages__list
+				li.col.spares-advantages__item
+					+icon("spares__terms")
+					p Максимально сжатые сроки доставки
+				li.col.spares-advantages__item
+					+icon("spares__base")
+					p В нашей базе более 800 поставщиков
+				li.col.spares-advantages__item
+					+icon("spares__original")
+					p Оригинальные и неоригинальные запчасти
+				li.col.spares-advantages__item
+					+icon("spares__consult")
+					p Бесплатно проконсультируем и поможем с выбором

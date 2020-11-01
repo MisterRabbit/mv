@@ -1,0 +1,102 @@
+.socials {
+    &__list {
+        display: flex;
+        flex-direction: row;
+    }
+    &__item {
+        margin-right: 12px;
+        &:last-child {
+            margin-right: 0 !important;
+        }
+        &__phone {
+            display: none;
+            @include breakpoint(900px) {
+                display: flex;
+            }
+        }
+    }
+    &__link {
+        display: block;
+        background: #2a323a;
+        padding: 7px;
+        border-radius: 3px;
+        &:hover {
+            background: $accent;
+        }
+        svg {
+            width: 19px;
+            height: 19px;
+            fill: #fff
+        }
+        &__phone {
+            align-self: center;
+            color: #fff;
+            margin-left: 10px;
+            @include breakpoint(xxs) {
+                font-size: 15px;
+                letter-spacing: -0.5px;
+            }
+        }
+    }
+    &__main-nav {
+        @include breakpoint(xxs) {
+            .socials__item {
+                margin-right: 8px;
+            }
+        }
+        @include breakpoint(sm) {
+            .socials__item__vk,
+            .socials__item__facebook,
+            .socials__item__instagram {
+                display: none;
+            }
+        }
+    }
+    &__footer {
+        margin-top: 22px;
+        .socials__item {
+            margin: 0 8px 8px 0;
+        }
+        .socials__link {
+            padding: 9px;
+            svg {
+                height: 23px;
+                width: 23px;
+            }
+        }
+	}
+	&__advice {
+		.socials {
+			&__list {
+				justify-content: center;
+			}
+			&__item {
+				@include breakpoint(440px) {
+					margin-right: 7px;
+				}
+			}
+			&__link {
+				padding: 13px;
+				border-radius: 100%;
+				background: $gray;
+				@include breakpoint(xxs) {
+					padding: 10px;
+				}
+				@include breakpoint(340px) {
+					padding: 8px;
+				}
+				&:hover {
+					background: $accent;
+				}
+				svg {
+					height: 28px;
+					width: 28px;
+					@include breakpoint(xs) {
+						height: 23px;
+						width: 23px;
+					}
+				}
+			}
+		}
+	}
+}

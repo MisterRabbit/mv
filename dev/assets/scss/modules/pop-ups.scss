@@ -1,0 +1,320 @@
+.popup {
+    display: none;
+    max-height: 100vh;
+    &.open {
+        display: block;
+    }
+    &__wrapper {
+        background: #fff;
+        max-width: 500px;
+        transform: translateY(-100px);
+        opacity: 0;
+        transition: .3s;
+        margin: 10px 0;
+        position: relative;
+        // overflow-y: auto;
+        // height: 100%;
+        // overflow-y: scroll;
+        &.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+    }
+    &__cover {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.7);
+        height: 100%;
+        width: 100%;
+        left: 0; top: 0; bottom: 0; right: 0;
+        display: none;
+    }
+    &__header {
+        padding: 15px 45px 15px 15px;
+        background: $gray;
+        position: relative;
+        h5 {
+			color: #fff;
+            font-weight: normal;
+            font-size: 20px;
+			line-height: 30px;
+			@include breakpoint(xxs) {
+				font-size: 18px;
+				line-height: 25px;
+			}
+			&:focus {
+				outline: 0;
+			}
+			span {
+				color: $accent;
+				font-weight: bold;
+			}
+        }
+    }
+    &__close {
+        position: absolute;
+        right: 15px;
+        top: calc(50% - 10px);
+        svg {
+            fill: $accent;
+            height: 20px;
+            width: 20px;
+            transition: .3s;
+        }
+        &:hover {
+            svg {
+                fill: #fff;
+            }
+        }
+    }
+    &__disc {
+        line-height: 32px;
+		margin-bottom: 20px;
+		@include breakpoint(sm) {
+			line-height: 25px;
+			margin-bottom: 15px;
+		}
+    }
+    &__body {
+		padding: 15px;
+		@include breakpoint(xxs) {
+			padding: 10px;
+		}
+    }
+}
+
+#popup-callback,
+#popup-service {
+	.form {
+		padding: 0 15px;
+		@include breakpoint(xs) {
+			padding: 0;
+		}
+    }
+}
+
+#popup-advice {
+	color: #fff;
+	.popup {
+		&__wrapper {
+			max-width: 800px;
+			background: url(../img/content/footer-bg.png) no-repeat;
+			background-size: cover;
+			background-color: $dark;
+			padding: 15px 30px 20px;
+			@include breakpoint(sm) {
+				padding: 0px 15px 20px;
+			}
+			@include breakpoint(xs) {
+				padding: 0px 10px 20px;
+			}
+		}
+		&__close {
+			right: 0px;
+			top: 15px;
+		}
+		&__header {
+			padding: 30px 15px 15px;
+			background: transparent;
+			h5 {
+				text-align: center;
+				&:after {
+					content: "";
+					width: 100px;
+					height: 2px;
+					background: $accent;
+					display: block;
+					margin: 15px auto 0;
+				}
+			}
+		}
+		&__body {
+			padding: 0 0 30px;
+			textarea {
+				min-height: 100px;
+				max-height: 300px;
+			}
+		}
+		&__disc {
+			font-size: 18px;
+			text-align: center;
+			padding: 0 4vw;
+			@include breakpoint(md) {
+				padding: 0;
+			}
+			@include breakpoint(sm) {
+				font-size: 17px;
+				line-height: 25px;
+			}
+			@include breakpoint(xs) {
+				font-size: 16px;
+			}
+			@include breakpoint(340px) {
+				font-size: 15px;
+			}
+			span {
+				font-weight: bold;
+				color: $accent;
+			}
+
+		}
+		&__bottom {
+			border-top: 1px solid #fff;
+			padding-top: 20px;
+		}
+	}
+	.form {
+		max-width: 450px;
+		margin: 0 auto;
+		&__item > svg {
+			fill: #797979;
+			&:hover {
+				fill: #fff;
+			}
+		}
+		&__label {
+			font-weight: normal;
+		}
+		&__control {
+			border: 0;
+			background-color: rgba(255,255,255, 0.1);
+			color: #fff;
+			&:focus {
+				background-color: rgba(255,255,255, 0.15);
+			}
+		}
+		&__submit {
+			padding-top: 15px;
+		}
+		&__btn-submit {
+			background: $accent;
+			text-transform: uppercase;
+			font-weight: normal;
+			font-size: 16px;
+			padding: 13px 30px;
+			margin-right: auto;
+			&:hover {
+				background: #fff;
+				color: $text;
+			}
+		}
+	}	
+}
+
+#popup-spares {
+	.popup {
+		&__body {
+			margin-bottom: 20px;
+		}
+		&__wrapper {
+			max-width: 1000px;
+		}
+		&__bottom {
+			.spares-advantages {
+				padding: 10px 0 0;
+			}
+			.spares-advantages__item svg {
+				height: 13vw;
+				@include breakpoint(lg) {
+					height: 18vw;
+				}
+				@include breakpoint(700px) {
+					height: 30vw;
+				}
+				@include breakpoint(xxs) {
+					height: 50vw;
+				}
+			}
+		}
+	}
+	.form {
+		&__btn-submit {
+			margin-right: auto;
+			text-transform: uppercase;
+			background: $accent;
+			letter-spacing: 1px;
+			font-size: 16px;
+			font-weight: bold;
+			&:hover {
+				background: $gray;
+			}
+		}
+	}
+}
+
+#popup-success {
+	.popup {
+		&__wrapper {
+			max-width: 400px;
+			// background-color: $dark;
+			// color: #fff;
+			padding: 15px;
+			text-align: center;
+		}
+		&__body {
+			@include breakpoint(xxs) {
+				padding: 15px 0;
+			}
+			h3 {
+				font-size: 20px;
+				margin: 20px auto 10px;
+				@include breakpoint(xxs) {
+					font-size: 18px;
+				}
+			}
+			button {
+				position: relative;
+				background: #fff;
+				padding: 10px 24px;
+				right: unset;
+				font-size: 19px;
+				border: 2px solid $dark;
+				&:hover {
+					color: #fff;
+					background: $dark;
+				}
+			}
+		}
+		&__disc {
+			line-height: 22px;
+		}
+	}
+}
+
+.pulse-box {
+	margin: 10px auto 10px auto;
+    display: inline-block;
+	border-radius: 50%;
+	background: #7dc44f;
+	box-shadow: 0 0 0 rgba(54, 64, 75, 0.9);
+	animation: pulse 1.5s infinite;
+	svg {
+		fill: #fff;
+		width: 170px;
+		height: 170px;
+		padding: 30px;
+	}
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		-webkit-box-shadow: 0 0 0 0 rgba(125, 196, 79, 0.9);
+	}
+	70% {
+		-webkit-box-shadow: 0 0 0 20px rgba(125, 196, 79, 0);
+	}
+	100% {
+		-webkit-box-shadow: 0 0 0 0 rgba(125, 196, 79, 0);
+	}
+}
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(125, 196, 79, 0.9);
+	}
+	70% {
+		box-shadow: 0 0 0 20px rgba(125, 196, 79, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba(125, 196, 79, 0);
+	}
+}

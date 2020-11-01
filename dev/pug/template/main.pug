@@ -1,0 +1,47 @@
+include ../utils/vars
+include ../utils/mixins
+block variables
+
+doctype html
+html(lang="ru-RU")
+	head
+		meta(charset="utf-8")
+		title #{title}
+		<!--[if IE]>
+		<meta http-equiv='X-UA-Compatible', content="IE = edge">
+		<![endif]-->
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		meta(name="keywords" content="")
+		meta(name="author" content="Adam Hunt | adamhunt.pro")
+		include ../modules/favicons
+		link(rel="stylesheet" type='text/css' href="/assets/css/main.css")
+
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+	body(class=pageClass)
+		.preloader__overlay
+			.preloader
+		include ../modules/mobile-menu
+		.wrapper
+			include ../modules/header
+			.content
+				section.page-title
+					.container
+						h1.page-title__header #{title}
+				main.main
+					block content
+
+			include ../modules/footer
+			include ../modules/fixed
+		.overlay
+
+		include ../modules/popup-callback
+		include ../modules/popup-services
+		include ../modules/popup-success
+
+		script(src="/assets/js/libs.min.js")
+		script(src="/assets/js/main.js")
+		block script

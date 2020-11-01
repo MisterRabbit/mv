@@ -1,0 +1,59 @@
+footer.footer
+	.footer-top
+		.container
+			.row.footer-top__wrapper
+				.col.footer-top__item
+					+icon("spares")
+					p.footer-top__text Онлайн заказ автозапчастей#[br]#[a(href="spares.html").trs Подробнее]
+				.col.footer-top__item
+					+icon("taxi")
+					p.footer-top__text #[span Бесплатно] доставим вас от метро до сервиса и обратно #[+iconTooltip("question", "При условии, что автомобиль клиента остаётся на ремонт в Сервисе")]
+				.col.footer-top__item
+					+icon("crane")
+					p.footer-top__text Эвакуатор круглосуточно#[br]#[a(href="tel:" + phoneShort) #{phone}]
+
+				
+	.footer-main
+		.container
+			.footer-main__divider
+			.row.footer-main__wrapper
+				.col.footer-main__item
+					h6 Контакты
+					ul.footer-main__list.footer-main__list__not-marked
+						li Адрес: #{address}
+						li E-mail: #[a(href="mailto:" + email) #{email}]
+						li Тел.: #[a(href="tel:" + phoneShort) #{phone}]
+						li Веб-сайт: #[a(href="/").trs www.mvmotorauto.ru]
+					.socials.socials__footer
+						ul.socials__list
+							each item in content.socialItems
+								+socialItem(item.url, item.text, item.name)
+				.col.footer-main__item
+					h6 Наши услуги
+					ul.footer-main__list
+						+footerServicesItem("Замена цепей ГРМ")
+						+footerServicesItem("Удаление катализатора")
+						+footerServicesItem("Замена лобового стекла")
+						+footerServicesItem("Ремонт АКПП (DSG)")
+						+footerServicesItem("Ремонт и замена пневмобаллонов")
+						+footerServicesItem("Ремонт стартеров и генераторов")
+						li #[a(href="services.html").footer-main__link.full-list.trs Весь список услуг]
+				.col.footer-main__item
+					h6 Полезные статьи
+					ul.footer-main__list
+						li
+							a(href="article.html").footer-main__link.trs При какой температуре замерзает бензин?
+				.col.footer-main__item
+					h6 Время работы
+					ul.footer-main__list
+						li Понедельник: #[span 9:00 - 18:00]
+						li Вторник: #[span 9:00 - 18:00]
+						li Среда: #[span 9:00 - 18:00]
+						li Четверг: #[span 9:00 - 18:00]
+						li Пятница: #[span 9:00 - 18:00]
+						li Суббота: #[span Закрыто]
+						li Воскресенье: #[span Закрыто]
+	.footer-bottom
+		.container
+			.copyright
+				p.copyright__text © 2019 ООО "МВ-моторс" | Все права защищены | #[a(href="/sitemap.html").copyright__link.trs Карта сайта] | #[a(href="/agreement.html").copyright__link.trs Пользовательское соглашение]

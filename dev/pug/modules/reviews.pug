@@ -1,0 +1,9 @@
+section(data-parallax="scroll" data-image-src="assets/img/content/reviews.png" data-bleed="100" data-speed="0.6" data-natural-height="1013" data-natural-width="1880").reviews
+	.container
+		.section-title
+			h3 Благодарности наших клиентов
+			.line
+		ul.reviews-carousel
+			each item in content.reviewsItems
+				+reviewsItem(item.name, item.text)
+	
